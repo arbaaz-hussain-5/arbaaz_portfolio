@@ -1,16 +1,18 @@
-export default function SkillsSection() {
-  const skills = [
-    "JavaScript ",
-    "React",
-    "Redux Toolkit",
-    "Tailwind CSS",
-    "shadcn UI",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "RESTful APIs",
-  ];
-const skillColors = {
+import React from "react";
+
+const skills: string[] = [
+  "JavaScript",
+  "React",
+  "Redux Toolkit",
+  "Tailwind CSS",
+  "shadcn UI",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "RESTful APIs",
+];
+
+const skillColors: Record<string, string> = {
   "JavaScript": "from-yellow-100 to-yellow-200 border-yellow-400 text-yellow-800",
   "React": "from-blue-100 to-blue-200 border-blue-400 text-blue-900",
   "Redux Toolkit": "from-purple-100 to-purple-200 border-purple-400 text-purple-900",
@@ -22,8 +24,7 @@ const skillColors = {
   "RESTful APIs": "from-orange-100 to-orange-200 border-orange-400 text-orange-900",
 };
 
-
-
+const SkillsSection: React.FC = () => {
   return (
     <section className="bg-transparent py-12 sm:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,16 +36,20 @@ const skillColors = {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {skills.map((skill) => (
-           <div
-  key={skill}
-  className={`bg-gradient-to-br ${skillColors[skill] || "from-white to-slate-100 border-slate-300 text-gray-900"} p-4 sm:p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out`}
->
-  {skill}
-</div>
-
+            <div
+              key={skill}
+              className={`bg-gradient-to-br ${
+                skillColors[skill] ||
+                "from-white to-slate-100 border-slate-300 text-gray-900"
+              } p-4 sm:p-6 rounded-xl shadow-md text-center hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out`}
+            >
+              {skill}
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default SkillsSection;
